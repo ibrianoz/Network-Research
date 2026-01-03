@@ -117,3 +117,10 @@ Select Mode:
 Option 1: Single Target Scan (IP).
 
 Option 2: Network Scan (Auto-detects remote CIDR and scans live hosts).
+
+⚠️ Legal Disclaimer
+The NX201 tool is developed for educational purposes and authorized security auditing only. The primary intent of this project is to assist security professionals and students in understanding network vulnerabilities and defensive mechanisms.
+
+Authorized Use Only: Users must not execute this tool against any network, server, or system for which they do not possess explicit, written permission from the owner.
+
+No Liability: The developer and associated instructors accept no responsibility for any misuse, damage, data loss, or legal consequences resulting from the use of this software.
