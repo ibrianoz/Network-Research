@@ -1,28 +1,44 @@
 # Network-Research
 ---
 ![Network Research](https://github.com/ibrianoz/Network-Research/blob/a878c5a034f202968a8f6ade94706e91248554f9/NX201.png)
+Here is the complete, professionally formatted README.md file for your Network-Research project, integrating the provided content and the legal disclaimer.
+
+Markdown
+
+# Network-Research (NX201)
+
+> **A comprehensive Bash-based security framework designed to perform automated, anonymized, and remote network reconnaissance.**
+
+---
+
 ## 📖 Executive Summary
 
-The **Network-Research** is a comprehensive Bash-based security framework designed to automate the initial phases of network penetration testing while strictly maintaining operational security (OpSec).
+The **Network-Research** framework is designed to automate the initial phases of network penetration testing while strictly maintaining Operational Security (OpSec).
 
 Unlike standard scanners that run locally, this tool establishes a secure SSH connection to a remote server and uses it as a **pivot point** to scan targets. All control traffic is routed through the **Tor network** using **NIPE**, ensuring the auditor's true location remains obfuscated.
 
+---
+
 ## ✨ Key Features
 
-* **🛡️ Anonymity & OpSec:**
-    * **NIPE Integration:** Routes traffic through Tor.
-    * **Geo-Location Kill Switch:** Automatically checks the Tor exit node. If the exit IP is located in Israel (`IL`), the script forces a circuit rebuild to prevent local exposure.
-* **📡 Remote Pivot Scanning:**
-    * Executes `nmap`, `whois`, and `ping` commands directly on the remote server using `sshpass`.
-    * Minimizes local bandwidth usage and keeps attack traffic local to the target network.
-* **🔍 Hybrid Scanning Engine:**
-    * **Fast Scan:** Rapid TCP SYN scan to identify open ports (`--min-rate 300`).
-    * **Deep Scan:** Targeted vulnerability analysis (`--script vuln`) run *only* on the detected open ports.
-* **💾 Fail-Safe Data Recovery:**
-    * Features an intelligent `cleanup` trap. If the script is interrupted (Ctrl+C) or crashes, it automatically connects to the remote server to recover any partial data before wiping the remote workspace.
-* **📊 Automated Reporting:**
-    * Generates structured **Markdown** and **Text** reports.
-    * Includes session metadata (Folder size, Time, Tor Exit IP) and parsed vulnerability findings.
+### 🛡️ Anonymity & OpSec
+* **NIPE Integration:** Routes all local control traffic through the Tor network.
+* **Geo-Location Kill Switch:** Automatically checks the Tor exit node before operations begin. If the exit IP is located in Israel (IL), the script forces a circuit rebuild to prevent local exposure.
+
+### 📡 Remote Pivot Scanning
+* **Pivot Execution:** Executes `nmap`, `whois`, and `ping` commands directly on the remote server using `sshpass`.
+* **Traffic Isolation:** Minimizes local bandwidth usage and ensures attack traffic originates solely from the remote pivot, keeping the auditor's local network clean.
+
+### 🔍 Hybrid Scanning Engine
+* **Fast Scan:** Rapid TCP SYN scan to identify open ports (`--min-rate 300`).
+* **Deep Scan:** Targeted vulnerability analysis (`--script vuln`) run **only** on the detected open ports to save time and reduce noise.
+
+### 💾 Fail-Safe Data Recovery
+* **Cleanup Trap:** Features an intelligent cleanup function hooked to system signals. If the script is interrupted (`Ctrl+C`) or crashes, it automatically connects to the remote server to recover any partial data before securely wiping the remote workspace.
+
+### 📊 Automated Reporting
+* **Structured Output:** Generates readable **Markdown** and **Text** reports.
+* **Metadata:** Includes session details (Folder size, Time, Tor Exit IP) alongside parsed vulnerability findings.
 
 ---
 
@@ -75,8 +91,10 @@ trap cleanup ERR
 
 cleanup() {
     log "Interrupt detected — inspecting remote directory..."
+    
     # Attempt SCP recovery of partial data before deletion
     sshpass -p "$SSH_PASS" scp -r ... "$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR" "$LOCAL_SAVE/"
+    
     # Securely remove remote evidence
     sshpass ... "rm -rf $REMOTE_DIR"
 }
@@ -84,7 +102,7 @@ cleanup() {
 Prerequisites
 OS: Kali Linux (or Debian-based distribution).
 
-User: Must be run as root (Sudo).
+User: Must be run as root (sudo).
 
 Remote Server: A VPS or remote machine with SSH access and sudo privileges.
 
@@ -95,7 +113,7 @@ Download the script:
 
 Bash
 
-git clone [https://github.com/ibrianoz/Network-Research](https://github.com/ibrianoz/Network-Research.git)
+git clone [https://github.com/ibrianoz/Network-Research.git](https://github.com/ibrianoz/Network-Research.git)
 cd Network-Research
 Make executable:
 
@@ -118,7 +136,7 @@ Option 1: Single Target Scan (IP).
 
 Option 2: Network Scan (Auto-detects remote CIDR and scans live hosts).
 
-##⚠️ Legal Disclaimer
+⚠️ Legal Disclaimer
 The NX201 tool is developed for educational purposes and authorized security auditing only. The primary intent of this project is to assist security professionals and students in understanding network vulnerabilities and defensive mechanisms.
 
 Authorized Use Only: Users must not execute this tool against any network, server, or system for which they do not possess explicit, written permission from the owner.
