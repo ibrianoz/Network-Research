@@ -1,8 +1,8 @@
-# RASAT - Remote Anonymized Security Audit Tool
+# Network-Research
 ---
 ## 📖 Executive Summary
 
-The **Remote Anonymized Security Audit Tool (RASAT)** is a comprehensive Bash-based security framework designed to automate the initial phases of network penetration testing while strictly maintaining operational security (OpSec).
+The **Network-Research** is a comprehensive Bash-based security framework designed to automate the initial phases of network penetration testing while strictly maintaining operational security (OpSec).
 
 Unlike standard scanners that run locally, this tool establishes a secure SSH connection to a remote server and uses it as a **pivot point** to scan targets. All control traffic is routed through the **Tor network** using **NIPE**, ensuring the auditor's true location remains obfuscated.
 
@@ -94,18 +94,18 @@ Download the script:
 
 Bash
 
-git clone [https://github.com/YourUsername/RASAT.git](https://github.com/YourUsername/RASAT.git)
-cd RASAT
+git clone [https://github.com/ibrianoz/Network-Research](https://github.com/ibrianoz/Network-Research.git)
+cd Network-Research
 Make executable:
 
 Bash
 
-chmod +x rasat.sh
+chmod +x S10.NX201.sh
 Run:
 
 Bash
 
-sudo ./rasat.sh
+sudo ./S10.NX201.sh
 Operation
 Session Setup: Enter a name for the current audit session.
 
