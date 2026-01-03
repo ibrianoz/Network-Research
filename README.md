@@ -1,5 +1,6 @@
 # Network-Research
 ---
+![Network Research](https://github.com/ibrianoz/Network-Research/blob/a878c5a034f202968a8f6ade94706e91248554f9/NX201.png)
 ## 📖 Executive Summary
 
 The **Network-Research** is a comprehensive Bash-based security framework designed to automate the initial phases of network penetration testing while strictly maintaining operational security (OpSec).
