@@ -1,9 +1,6 @@
 # Network-Research
 ---
 ![Network Research](https://github.com/ibrianoz/Network-Research/blob/a878c5a034f202968a8f6ade94706e91248554f9/NX201.png)
-Here is the complete, professionally formatted README.md file for your Network-Research project, integrating the provided content and the legal disclaimer.
-
-Markdown
 
 # Network-Research (NX201)
 
